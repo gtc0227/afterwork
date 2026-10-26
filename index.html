@@ -164,6 +164,16 @@
     border-radius: 999px; padding: 6px 14px;
   }
   .nb-empty { color: var(--ink-2); font-size: 14px; padding: 8px 0; }
+  .nb-chips { display: flex; gap: 8px; margin: 4px 0 8px; }
+  .nb-chip {
+    border: 1px solid var(--hairline); background: #fff; color: var(--ink-2);
+    border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 600; cursor: pointer;
+  }
+  .nb-chip-on { background: var(--bg); color: #fff; border-color: var(--bg); }
+  .nb-tag { color: var(--teal); font-weight: 600; }
+  .nb-choose { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+  .nb-choice { text-align: left; font-weight: 500; }
+  #nb-retry { margin-top: 8px; }
   .nb-credit { font-size: 11px; color: #b6b0b2; margin-top: 10px; }
   .nb-credit a { color: var(--teal); }
 
@@ -186,7 +196,7 @@
   <div class="hero-inner">
     <div class="kicker">Clock out. Tune in.</div>
     <h1>Afterwork</h1>
-    <p>Ideas for the hours after work - things to do alone to recharge, and things to do with friends when the evening is young.</p>
+    <p>Curated ideas for the hours after 6 pm - things to do alone to recharge, and things to do with friends when the evening is young.</p>
     <div class="clock">The best part of the day starts at 6 pm</div>
   </div>
 </header>
@@ -194,20 +204,21 @@
 <main>
 
   <section class="card nb-card" id="nearby">
-    <h2>Near you tonight</h2>
-    <p class="section-sub">Afterwork spots close to where you are.</p>
+    <h2>Near you</h2>
+    <p class="section-sub">Real places near your current location, or any postcode you set.</p>
     <div id="nb-ask">
       <div class="nb-actions">
-        <button id="nb-locate" class="nb-btn nb-btn-primary" type="button">&#x1F4CD; Use my location</button>
+        <button id="nb-locate" class="nb-btn nb-btn-primary" type="button">&#x1F4CD; Use my current location</button>
         <div class="nb-or">or</div>
         <div class="nb-area-row">
-          <input id="nb-area" type="text" placeholder="Type an area, town or postcode" autocomplete="off">
+          <input id="nb-area" type="text" placeholder="Postal code, area or town" autocomplete="off">
           <button id="nb-area-btn" class="nb-btn" type="button">Search</button>
         </div>
       </div>
       <p class="nb-privacy">Nearby spots and weather are looked up from OpenStreetMap and Open-Meteo using the location or area you provide. This site itself stores nothing about you.</p>
     </div>
     <div id="nb-status" class="nb-status" style="display:none"></div>
+    <button id="nb-retry" class="nb-btn" type="button" style="display:none">Try again</button>
     <div id="nb-results" style="display:none"></div>
     <button id="nb-reset" class="nb-btn nb-btn-ghost" type="button" style="display:none">Change area</button>
   </section>
