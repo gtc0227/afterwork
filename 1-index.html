@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Afterwork - ideas for the hours after work</title>
+<meta name="description" content="Afterwork is a collection of ideas for the hours after work: things to do alone to recharge, and things to do with friends.">
+<style>
+  :root {
+    --ink: #251f21;
+    --ink-2: #585254;
+    --bg: #1d1730;
+    --card: #ffffff;
+    --sand: #f4efec;
+    --teal: #73a89a;
+    --amber: #f0b35e;
+    --hairline: #eae9ea;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--sand);
+    line-height: 1.6;
+  }
+  .hero {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    padding: 88px 24px 150px;
+    background: var(--bg) url('hero.jpg') center 35% / cover no-repeat;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(29,23,48,0.55) 0%, rgba(29,23,48,0.25) 45%, rgba(29,23,48,0.72) 100%);
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+  .hero .kicker { letter-spacing: 0.22em; text-transform: uppercase; font-size: 12px; color: var(--amber); font-weight: 700; }
+  .hero h1 { font-size: 46px; line-height: 1.1; margin: 12px 0 16px; font-weight: 800; letter-spacing: -0.02em; text-shadow: 0 2px 24px rgba(29,23,48,0.5); }
+  .hero p { font-size: 17px; color: #e8e2f0; max-width: 480px; margin: 0 auto; text-shadow: 0 1px 12px rgba(29,23,48,0.5); }
+  .hero .clock { margin-top: 24px; display: inline-block; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; padding: 8px 18px; font-size: 14px; color: #fff; background: rgba(29,23,48,0.35); backdrop-filter: blur(4px); }
+  main { max-width: 760px; margin: 0 auto; padding: 0 16px 64px; }
+  .card {
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(29,23,48,0.08);
+    padding: 28px 24px;
+    margin-top: -64px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+  }
+  .card + .card { margin-top: 24px; }
+  .card img.section-img {
+    width: calc(100% + 48px);
+    max-width: none;
+    margin: -28px -24px 18px;
+    display: block;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+  h2 { font-size: 24px; letter-spacing: -0.01em; margin-bottom: 4px; }
+  .section-sub { color: var(--ink-2); font-size: 14px; margin-bottom: 14px; }
+  ul.ideas { list-style: none; }
+  ul.ideas li {
+    display: flex;
+    gap: 14px;
+    padding: 13px 0;
+    border-top: 1px solid var(--hairline);
+    align-items: flex-start;
+  }
+  ul.ideas li:first-child { border-top: none; }
+  .emoji {
+    flex: 0 0 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--sand);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .idea-name { font-weight: 700; font-size: 15px; }
+  .idea-detail { color: var(--ink-2); font-size: 14px; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: rgba(115,168,154,0.12);
+    border-radius: 999px;
+    padding: 2px 10px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .tag.free { color: #b0792a; background: rgba(240,179,94,0.16); }
+  .moods { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .mood {
+    border: 1px solid var(--hairline);
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 14px;
+    background: #fff;
+  }
+  .mood b { display: block; font-size: 14px; margin-bottom: 2px; }
+  .mood .m-emoji { font-size: 22px; display: block; margin-bottom: 6px; }
+  .mood span { color: var(--ink-2); font-size: 13px; }
+  footer { text-align: center; color: var(--ink-2); font-size: 13px; padding: 32px 16px 40px; }
+  footer a { color: var(--teal); text-decoration: none; }
+  .illus-note { font-size: 11px; color: #b6b0b2; margin-top: 24px; }
+
+  .nb-card { }
+  .nb-actions { display: flex; flex-direction: column; gap: 10px; }
+  .nb-btn {
+    border: 1px solid var(--hairline);
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+    min-height: 48px;
+  }
+  .nb-btn:disabled { opacity: 0.5; cursor: default; }
+  .nb-btn-primary { background: var(--bg); color: #fff; border-color: var(--bg); }
+  .nb-btn-ghost { background: transparent; margin-top: 14px; }
+  .nb-or { text-align: center; color: var(--ink-2); font-size: 13px; }
+  .nb-area-row { display: flex; gap: 8px; }
+  .nb-area-row input {
+    flex: 1; min-width: 0;
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 15px;
+    font-family: inherit;
+  }
+  .nb-privacy { font-size: 12px; color: var(--ink-2); margin-top: 12px; }
+  .nb-status { font-size: 14px; color: var(--ink-2); padding: 8px 0; }
+  .nb-error { color: #c0392b; }
+  .nb-head { font-size: 15px; margin-bottom: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .nb-weather {
+    font-size: 12px; font-weight: 700;
+    background: rgba(115,168,154,0.12); color: var(--teal);
+    border-radius: 999px; padding: 3px 10px;
+  }
+  ul.nb-list { list-style: none; }
+  ul.nb-list li {
+    display: flex; gap: 12px; align-items: center;
+    padding: 12px 0; border-top: 1px solid var(--hairline);
+  }
+  ul.nb-list li:first-child { border-top: none; }
+  .nb-spot { flex: 1; min-width: 0; }
+  .nb-map {
+    flex: 0 0 auto;
+    font-size: 13px; font-weight: 700;
+    color: var(--teal); text-decoration: none;
+    border: 1px solid rgba(115,168,154,0.4);
+    border-radius: 999px; padding: 6px 14px;
+  }
+  .nb-empty { color: var(--ink-2); font-size: 14px; padding: 8px 0; }
+  .nb-credit { font-size: 11px; color: #b6b0b2; margin-top: 10px; }
+  .nb-credit a { color: var(--teal); }
+
+  @media (max-width: 480px) {
+    .nb-area-row { flex-direction: column; }
+    .nb-area-row .nb-btn { width: 100%; }
+  }
+  @media (min-width: 720px) {
+    .hero h1 { font-size: 58px; }
+    main { padding-bottom: 80px; }
+    .card { padding: 36px 32px; }
+    .card img.section-img { width: calc(100% + 64px); margin: -36px -32px 20px; }
+    .moods { grid-template-columns: 1fr 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Clock out. Tune in.</div>
+    <h1>Afterwork</h1>
+    <p>Ideas for the hours after work - things to do alone to recharge, and things to do with friends when the evening is young.</p>
+    <div class="clock">The best part of the day starts at 6 pm</div>
+  </div>
+</header>
+
+<main>
+
+  <section class="card nb-card" id="nearby">
+    <h2>Near you tonight</h2>
+    <p class="section-sub">Afterwork spots close to where you are.</p>
+    <div id="nb-ask">
+      <div class="nb-actions">
+        <button id="nb-locate" class="nb-btn nb-btn-primary" type="button">&#x1F4CD; Use my location</button>
+        <div class="nb-or">or</div>
+        <div class="nb-area-row">
+          <input id="nb-area" type="text" placeholder="Type an area, town or postcode" autocomplete="off">
+          <button id="nb-area-btn" class="nb-btn" type="button">Search</button>
+        </div>
+      </div>
+      <p class="nb-privacy">Nearby spots and weather are looked up from OpenStreetMap and Open-Meteo using the location or area you provide. This site itself stores nothing about you.</p>
+    </div>
+    <div id="nb-status" class="nb-status" style="display:none"></div>
+    <div id="nb-results" style="display:none"></div>
+    <button id="nb-reset" class="nb-btn nb-btn-ghost" type="button" style="display:none">Change area</button>
+  </section>
+
+  <section class="card" id="solo">
+    <img class="section-img" src="solo.jpg" alt="Illustration of a person walking in a park at dusk">
+    <h2>On your own</h2>
+    <p class="section-sub">Quiet ways to unwind and reset after a long day.</p>
+    <ul class="ideas">
+      <li><span class="emoji">&#x1F6B6;</span><div><span class="idea-name">Evening walk in the park</span><span class="tag free">Free</span><div class="idea-detail">A slow loop around the neighbourhood park or park connector. Leave the headphones off sometimes and just walk.</div></div></li>
+      <li><span class="emoji">&#x1F373;</span><div><span class="idea-name">Cook one new dish</span><div class="idea-detail">Pick a recipe you have never tried and give it a go. Dinner and a small project in one.</div></div></li>
+      <li><span class="emoji">&#x1F3C3;</span><div><span class="idea-name">Gym or a short run</span><div class="idea-detail">Thirty minutes is enough to shake off the workday and sleep better tonight.</div></div></li>
+      <li><span class="emoji">&#x1F4D6;</span><div><span class="idea-name">Read at a quiet cafe</span><div class="idea-detail">Bring a book, order something warm, and stay for a chapter or three.</div></div></li>
+      <li><span class="emoji">&#x1F4F7;</span><div><span class="idea-name">Photography walk</span><span class="tag free">Free</span><div class="idea-detail">Take the long way home and shoot the golden hour. Your phone camera is plenty.</div></div></li>
+      <li><span class="emoji">&#x1F9E0;</span><div><span class="idea-name">Learn something small</span><div class="idea-detail">An online course, an instrument, a language app. Twenty minutes a day adds up fast.</div></div></li>
+      <li><span class="emoji">&#x1F6B4;</span><div><span class="idea-name">Night cycling</span><div class="idea-detail">Cooler air, emptier paths, city lights. A completely different ride from the daytime.</div></div></li>
+      <li><span class="emoji">&#x1F3AE;</span><div><span class="idea-name">Game night for one</span><div class="idea-detail">That game you bought but never finished. Tonight is the night.</div></div></li>
+      <li><span class="emoji">&#x1F5D3;</span><div><span class="idea-name">Plan something to look forward to</span><div class="idea-detail">A weekend trip, a meal, a visit. Even sketching the plan lifts the whole week.</div></div></li>
+      <li><span class="emoji">&#x1F30C;</span><div><span class="idea-name">Do nothing, on purpose</span><span class="tag free">Free</span><div class="idea-detail">Sit on the balcony, watch the sky change, and let the day end slowly. Rest is an activity too.</div></div></li>
+    </ul>
+  </section>
+
+  <section class="card" id="friends">
+    <img class="section-img" src="friends.jpg" alt="Illustration of friends sharing dinner outdoors at night">
+    <h2>With friends</h2>
+    <p class="section-sub">Send the group chat a time and a place. That is the whole plan.</p>
+    <ul class="ideas">
+      <li><span class="emoji">&#x1F35C;</span><div><span class="idea-name">Hawker dinner crawl</span><div class="idea-detail">Everyone orders from a different stall and shares. Cheap, loud, perfect.</div></div></li>
+      <li><span class="emoji">&#x1F3B2;</span><div><span class="idea-name">Board game cafe</span><div class="idea-detail">Two hours, one table, a game nobody has played before.</div></div></li>
+      <li><span class="emoji">&#x1F3C0;</span><div><span class="idea-name">Badminton, futsal or basketball</span><div class="idea-detail">Book a court, split the cost, loser buys drinks.</div></div></li>
+      <li><span class="emoji">&#x1F3A4;</span><div><span class="idea-name">Karaoke session</span><div class="idea-detail">Two hours of off-key anthems. Nobody remembers the score, everybody remembers the night.</div></div></li>
+      <li><span class="emoji">&#x1F3AC;</span><div><span class="idea-name">Movie night</span><div class="idea-detail">At the cinema or at home with snacks. Let the group vote between two picks, no endless scrolling.</div></div></li>
+      <li><span class="emoji">&#x1F3EA;</span><div><span class="idea-name">Night market wander</span><div class="idea-detail">Graze your way through the stalls and people-watch over dessert.</div></div></li>
+      <li><span class="emoji">&#x1F3A3;</span><div><span class="idea-name">Prawning or fishing</span><div class="idea-detail">Slow, chatty, and strangely addictive. Dinner sorted if luck is on your side.</div></div></li>
+      <li><span class="emoji">&#x1F3B3;</span><div><span class="idea-name">Bowling</span><div class="idea-detail">Works for any group size, any skill level, and there is always supper after.</div></div></li>
+      <li><span class="emoji">&#x1F378;</span><div><span class="idea-name">Rooftop drinks</span><div class="idea-detail">One drink with a view. Go on a weekday when it is calm.</div></div></li>
+      <li><span class="emoji">&#x1F37D;</span><div><span class="idea-name">Home potluck</span><div class="idea-detail">Everyone brings one dish. Board games optional, second helpings guaranteed.</div></div></li>
+    </ul>
+  </section>
+
+  <section class="card" id="tonight">
+    <h2>Tonight, by mood</h2>
+    <p class="section-sub">Pick the mood, take the idea.</p>
+    <div class="moods">
+      <div class="mood"><span class="m-emoji">&#x1F634;</span><b>Tired</b><span>Walk in the park, then an early night. No guilt.</span></div>
+      <div class="mood"><span class="m-emoji">&#x26A1;</span><b>Restless</b><span>Gym, run, or night cycling. Burn it off.</span></div>
+      <div class="mood"><span class="m-emoji">&#x1F9D0;</span><b>Curious</b><span>New recipe, new course, new route home.</span></div>
+      <div class="mood"><span class="m-emoji">&#x1F465;</span><b>Social</b><span>Text three friends: hawker dinner, 7 pm. Done.</span></div>
+      <div class="mood"><span class="m-emoji">&#x1F9D8;</span><b>Quiet</b><span>Cafe, book, phone in the bag.</span></div>
+      <div class="mood"><span class="m-emoji">&#x1F389;</span><b>Playful</b><span>Board games, bowling, or karaoke. Keep score loosely.</span></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Afterwork - ideas for the hours that are yours.</p>
+  <p>Made with <a href="https://pages.github.com" rel="noopener">GitHub Pages</a></p>
+  <p class="illus-note">Illustrations are artistic impressions, not photos of real places.</p>
+</footer>
+
+<script src="location.js"></script>
+</body>
+</html>
